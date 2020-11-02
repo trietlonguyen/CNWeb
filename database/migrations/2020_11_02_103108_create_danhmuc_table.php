@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateKhoaTable extends Migration
+class CreateDanhmucTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,11 +13,10 @@ class CreateKhoaTable extends Migration
      */
     public function up()
     {
-        Schema::create('khoa', function (Blueprint $table) {
-            $table->string('id', 10);
-			$table->string('tenkhoa');
+        Schema::create('danhmuc', function (Blueprint $table) {
+            $table->id();
+            $table->string('tendanhmuc')->unique();
             $table->timestamps();
-			$table->primary('id');
         });
     }
 
@@ -28,6 +27,6 @@ class CreateKhoaTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('khoa');
+        Schema::dropIfExists('danhmuc');
     }
 }

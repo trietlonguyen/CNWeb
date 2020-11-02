@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateSinhVienTable extends Migration
+class CreateKhachhangTable extends Migration
 {
 	/**
 	 * Run the migrations.
@@ -13,9 +13,8 @@ class CreateSinhVienTable extends Migration
 	 */
 	public function up()
 	{
-		Schema::create('sinhvien', function (Blueprint $table) {
+		Schema::create('khachhang', function (Blueprint $table) {
 			$table->string('id', 9);
-			$table->string('lop_id', 8);
 			$table->string('holot', 50);
 			$table->string('ten', 20);
 			$table->date('ngaysinh')->nullable();
@@ -24,7 +23,6 @@ class CreateSinhVienTable extends Migration
 			$table->text('ghichu')->nullable();
 			$table->timestamps();
 			$table->primary('id');
-			$table->foreign('lop_id')->references('id')->on('lop');
 		});
 	}
 	
@@ -35,6 +33,6 @@ class CreateSinhVienTable extends Migration
 	 */
 	public function down()
 	{
-		Schema::dropIfExists('sinhvien');
+		Schema::dropIfExists('khachhang');
 	}
 }
