@@ -2,42 +2,36 @@
 
 @section('content')
 	<div class="card">
-		<div class="card-header">Sinh viên</div>
+		<div class="card-header">Danh Mục</div>
 		<div class="card-body">
 			<p>
-				<a href="{{ url('/sinhvien/them') }}" class="btn btn-primary"><i class="fal fa-plus"></i> Thêm mới</a>
+				<a href="{{ url('/danhmuc/them') }}" class="btn btn-primary"><i class="fal fa-plus"></i> Thêm mới</a>
 				<a href="#nhap" class="btn btn-success" data-toggle="modal" data-target="#importModal"><i class="fal fa-upload"></i> Nhập từ Excel</a>
-				<a href="{{ url('/sinhvien/xuat') }}" class="btn btn-info"><i class="fal fa-download"></i> Xuất ra Excel</a>
+				<a href="{{ url('/danhmuc/xuat') }}" class="btn btn-info"><i class="fal fa-download"></i> Xuất ra Excel</a>
 			</p>
 			<table class="table table-bordered table-sm">
 				<thead>
 					<tr>
 						<th>#</th>
-						<th>MSSV</th>
-						<th>Họ và tên</th>
-						<th>Ngày sinh</th>
-						<th>Email</th>
-						<th>Điện thoại</th>
-						<th>Lớp</th>
+						<th>id</th>
+						<th>Tên danh mục</th>
+						<th>Ngày tạo</th>
+						<th>Ngày sửa</th>
 						<th>Sửa</th>
 						<th>Xóa</th>
 					</tr>
 				</thead>
 				<tbody>
-					@foreach($sinhvien as $value)
+					@foreach($danhmuc as $value)
 						<tr>
 							<td>{{ $loop->iteration }}</td>
-							<td>{{ $value->id }}</td>
+							<td>{{ $value->id}}</td>
+							<td>{{ $value->tendanhmuc}}</td>
+							<td>{{ $value->created_at }}</td>
+							<td>{{ $value->updated_at }}</td>
 							
-							<td>{{ $value->holot . " " . $value->ten }}</td>
-							<td>{{ $value->ngaysinh }}</td>
-							<td>{{ $value->dienthoai }}</td>
-							<td>{{ $value->email }}</td>
-							<td>{{ $value->lop_id }}</td>
-							
-							
-							<td class="text-center"><a href="{{ url('/sinhvien/sua/' . $value->id) }}"><i class="fal fa-edit"></i></a></td>
-							<td class="text-center"><a href="{{ url('/sinhvien/xoa/' . $value->id) }}"><i class="fal fa-trash-alt text-danger"></i></a></td>
+							<td class="text-center"><a href="{{ url('/danhmuc/sua/' . $value->id) }}"><i class="fal fa-edit"></i></a></td>
+							<td class="text-center"><a href="{{ url('/danhmuc/xoa/' . $value->id) }}"><i class="fal fa-trash-alt text-danger"></i></a></td>
 						</tr>
 					@endforeach
 				</tbody>
@@ -45,7 +39,7 @@
 		</div>
 	</div>
 	
-	<form action="{{ url('/sinhvien/nhap') }}" method="post" enctype="multipart/form-data">
+	<form action="{{ url('/danhmuc/nhap') }}" method="post" enctype="multipart/form-data">
 		@csrf
 		<div class="modal fade" id="importModal" tabindex="-1" role="dialog" aria-labelledby="importModalLabel" aria-hidden="true">
 			<div class="modal-dialog">

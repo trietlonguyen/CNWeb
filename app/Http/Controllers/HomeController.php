@@ -1,7 +1,8 @@
 <?php
 
 namespace App\Http\Controllers;
-
+use App\DanhMuc;
+use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 
 class HomeController extends Controller
@@ -13,6 +14,7 @@ class HomeController extends Controller
 	
 	public function getHome()
 	{
-		return view('home');
+		$danhmuc = DanhMuc::all();
+		return view('home', compact('danhmuc'));
 	}
 }

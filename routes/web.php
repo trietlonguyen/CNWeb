@@ -12,7 +12,7 @@
 */
 Auth::routes(['register' => true, 'reset' => true]);
 
-Route::get('/', 'HomeController@getHome')->name('home');
+Route::get('/home', 'HomeController@getHome')->name('home');
 
 //contact
 Route::get('/contact', [
@@ -33,13 +33,14 @@ Route::post('/lop/sua/{id}', 'LopController@postSua');
 Route::get('/lop/xoa/{id}', 'LopController@getXoa');
 Route::post('/lop/xoa/{id}', 'LopController@postXoa');
 
-// Sinh viên
-Route::get('/sinhvien', 'SinhVienController@getDanhSach');
-Route::get('/sinhvien/them', 'SinhVienController@getThem');
-Route::post('/sinhvien/them', 'SinhVienController@postThem');
-Route::get('/sinhvien/sua/{id}', 'SinhVienController@getSua');
-Route::post('/sinhvien/sua/{id}', 'SinhVienController@postSua');
-Route::get('/sinhvien/xoa/{id}', 'SinhVienController@getXoa');
-Route::post('/sinhvien/xoa/{id}', 'SinhVienController@postXoa');
-Route::post('/sinhvien/nhap', 'SinhVienController@postNhap');
-Route::get('/sinhvien/xuat', 'SinhVienController@getXuat');
+// danh mục
+
+Route::get('/danhmuc', 'DanhMucController@getDanhSach');
+Route::get('/danhmuc/them', 'DanhMucController@getThem');
+Route::post('/danhmuc/them', 'DanhMucController@postThem');
+Route::get('/danhmuc/sua/{id}', 'DanhMucController@getSua');
+Route::post('/danhmuc/sua/{id}', 'DanhMucController@postSua');
+Route::get('/danhmuc/xoa/{id}', 'DanhMucController@getXoa');
+Route::post('/danhmuc/xoa/{id}', 'DanhMucController@postXoa');
+Route::post('/danhmuc/nhap', 'DanhMucController@postNhap');
+Route::get('/danhmuc/xuat', 'DanhMucController@getXuat');

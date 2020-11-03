@@ -1,6 +1,6 @@
-@extends('layouts.app')
 
-@section('content')
+
+<?php $__env->startSection('content'); ?>
 
 
 <style type="text/css">
@@ -32,13 +32,13 @@
   </ol>
   <div class="carousel-inner">
     <div class="carousel-item active">
-      <img class="d-block w-100" src="{{asset('public/images/banner4.jpg')}}" alt="First slide">
+      <img class="d-block w-100" src="<?php echo e(asset('public/images/banner4.jpg')); ?>" alt="First slide">
     </div>
     <div class="carousel-item">
-      <img class="d-block w-100" src="{{asset('public/images/banner2.jpg')}}" alt="Second slide">
+      <img class="d-block w-100" src="<?php echo e(asset('public/images/banner2.jpg')); ?>" alt="Second slide">
     </div>
     <div class="carousel-item">
-      <img class="d-block w-100" src="{{asset('public/images/banner5.jpg')}}" alt="Third slide">
+      <img class="d-block w-100" src="<?php echo e(asset('public/images/banner5.jpg')); ?>" alt="Third slide">
     </div>
   </div>
   <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
@@ -55,32 +55,35 @@
 <div class="row w-100 h-100">
 		<h3 class="text-dark text-center w-100 font-weight-bold rounded"><hr />Danh Mục</h3>
 		<ul class="nav nav-pills mb-3 w-100" id="pills-tab" role="tablist" style="display: flex;align-items: center;justify-content: center;">
-			@csrf
+			<?php echo csrf_field(); ?>
 		  	<li class="nav-item tab">
 		    	<a class="nav-link active design" id="pills-home-tab" data-toggle="pill" href="#pills-home" role="tab" aria-controls="pills-home" aria-selected="true">
-		    		@foreach($danhmuc as $value)
-		    			@if($value->id == 1)
-							{{$value->tendanhmuc}}
+		    		<?php $__currentLoopData = $danhmuc; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $value): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+		    			<?php if($value->id == 1): ?>
+							<?php echo e($value->tendanhmuc); ?>
+
 				<i class="fa fa-caret-down" aria-hidden="true"></i>
-						@endif
+						<?php endif; ?>
 		    	</a>
 		  	</li>
 		  	<li class="nav-item tab">
 		    	<a class="nav-link design" id="pills-profile-tab" data-toggle="pill" href="#pills-profile" role="tab" aria-controls="pills-profile" aria-selected="false">
-		    		@if($value->id == 2)
-						{{$value->tendanhmuc}}
+		    		<?php if($value->id == 2): ?>
+						<?php echo e($value->tendanhmuc); ?>
+
 					<i class="fa fa-caret-down" aria-hidden="true"></i>
-					@endif
+					<?php endif; ?>
 					</a>
 		    		
 		  	</li>
 		  	<li class="nav-item tab">
 		    	<a class="nav-link design" id="pills-contact-tab" data-toggle="pill" href="#pills-contact" role="tab" aria-controls="pills-contact" aria-selected="false">
-		    		@if($value->id == 3)
-						{{$value->tendanhmuc}}
+		    		<?php if($value->id == 3): ?>
+						<?php echo e($value->tendanhmuc); ?>
+
 					<i class="fa fa-caret-down" aria-hidden="true"></i>
-					@endif
-					@endforeach
+					<?php endif; ?>
+					<?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
 				</a>
 					
 		  	</li>
@@ -89,22 +92,13 @@
 		<div class="tab-content w-100" id="pills-tabContent" >
 		  	<div class="tab-pane fade show active" id="pills-home" role="tabpanel" aria-labelledby="pills-home-tab">
 		  		<table class="table">
-		  			{{--
-				  	<thead class="thead-dark">
-				    	<tr>
-					      	<th scope="col"></th>
-					      	<th scope="col">1 năm</th>
-					      	<th scope="col">3 năm</th>
-					      	<th scope="col">5 năm</th>
-				    	</tr>
-				  	</thead>
-				  	--}}
+		  			
 				  	<tbody>
 				    	<div class="container">
 						  	<div class="row">
 
 						  		<div class="card col col-sm-3 col-lg-3" style="width: 18rem;">
-									<img class="card-img-top" src="{{asset('public/images/IPHONE/12.jpg')}}" alt="Card image cap">
+									<img class="card-img-top" src="<?php echo e(asset('public/images/IPHONE/12.jpg')); ?>" alt="Card image cap">
 									<div class="card-body">
 										<h5 class="card-title">Card title</h5>
 										<p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
@@ -112,7 +106,7 @@
 									</div>
 								</div>
 								<div class="card col col-sm-3 col-lg-3" style="width: 18rem;">
-									<img class="card-img-top" src="{{asset('public/images/IPHONE/12.jpg')}}" alt="Card image cap">
+									<img class="card-img-top" src="<?php echo e(asset('public/images/IPHONE/12.jpg')); ?>" alt="Card image cap">
 									<div class="card-body">
 										<h5 class="card-title">Card title</h5>
 										<p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
@@ -120,7 +114,7 @@
 									</div>
 								</div>
 								<div class="card col col-sm-3 col-lg-3" style="width: 18rem;">
-									<img class="card-img-top" src="{{asset('public/images/IPHONE/12.jpg')}}" alt="Card image cap">
+									<img class="card-img-top" src="<?php echo e(asset('public/images/IPHONE/12.jpg')); ?>" alt="Card image cap">
 									<div class="card-body">
 										<h5 class="card-title">Card title</h5>
 										<p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
@@ -128,7 +122,7 @@
 									</div>
 								</div>
 								<div class="card col col-sm-3 col-lg-3" style="width: 18rem;">
-									<img class="card-img-top" src="{{asset('public/images/IPHONE/12.jpg')}}" alt="Card image cap">
+									<img class="card-img-top" src="<?php echo e(asset('public/images/IPHONE/12.jpg')); ?>" alt="Card image cap">
 									<div class="card-body">
 										<h5 class="card-title">Card title</h5>
 										<p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
@@ -140,7 +134,7 @@
 						  	<div class="row">
 
 						  		<div class="card col col-sm-3 col-lg-3" style="width: 18rem;">
-									<img class="card-img-top" src="{{asset('public/images/IPHONE/12.jpg')}}" alt="Card image cap">
+									<img class="card-img-top" src="<?php echo e(asset('public/images/IPHONE/12.jpg')); ?>" alt="Card image cap">
 									<div class="card-body">
 										<h5 class="card-title">Card title</h5>
 										<p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
@@ -148,7 +142,7 @@
 									</div>
 								</div>
 								<div class="card col col-sm-3 col-lg-3" style="width: 18rem;">
-									<img class="card-img-top" src="{{asset('public/images/IPHONE/12.jpg')}}" alt="Card image cap">
+									<img class="card-img-top" src="<?php echo e(asset('public/images/IPHONE/12.jpg')); ?>" alt="Card image cap">
 									<div class="card-body">
 										<h5 class="card-title">Card title</h5>
 										<p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
@@ -156,7 +150,7 @@
 									</div>
 								</div>
 								<div class="card col col-sm-3 col-lg-3" style="width: 18rem;">
-									<img class="card-img-top" src="{{asset('public/images/IPHONE/12.jpg')}}" alt="Card image cap">
+									<img class="card-img-top" src="<?php echo e(asset('public/images/IPHONE/12.jpg')); ?>" alt="Card image cap">
 									<div class="card-body">
 										<h5 class="card-title">Card title</h5>
 										<p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
@@ -164,7 +158,7 @@
 									</div>
 								</div>
 								<div class="card col col-sm-3 col-lg-3" style="width: 18rem;">
-									<img class="card-img-top" src="{{asset('public/images/IPHONE/12.jpg')}}" alt="Card image cap">
+									<img class="card-img-top" src="<?php echo e(asset('public/images/IPHONE/12.jpg')); ?>" alt="Card image cap">
 									<div class="card-body">
 										<h5 class="card-title">Card title</h5>
 										<p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
@@ -185,7 +179,7 @@
 						  	<div class="row">
 
 						  		<div class="card col col-sm-3 col-lg-3" style="width: 18rem;">
-									<img class="card-img-top" src="{{asset('public/images/IPHONE/12.jpg')}}" alt="Card image cap">
+									<img class="card-img-top" src="<?php echo e(asset('public/images/IPHONE/12.jpg')); ?>" alt="Card image cap">
 									<div class="card-body">
 										<h5 class="card-title">Card title</h5>
 										<p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
@@ -193,7 +187,7 @@
 									</div>
 								</div>
 								<div class="card col col-sm-3 col-lg-3" style="width: 18rem;">
-									<img class="card-img-top" src="{{asset('public/images/IPHONE/12.jpg')}}" alt="Card image cap">
+									<img class="card-img-top" src="<?php echo e(asset('public/images/IPHONE/12.jpg')); ?>" alt="Card image cap">
 									<div class="card-body">
 										<h5 class="card-title">Card title</h5>
 										<p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
@@ -201,7 +195,7 @@
 									</div>
 								</div>
 								<div class="card col col-sm-3 col-lg-3" style="width: 18rem;">
-									<img class="card-img-top" src="{{asset('public/images/IPHONE/12.jpg')}}" alt="Card image cap">
+									<img class="card-img-top" src="<?php echo e(asset('public/images/IPHONE/12.jpg')); ?>" alt="Card image cap">
 									<div class="card-body">
 										<h5 class="card-title">Card title</h5>
 										<p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
@@ -209,7 +203,7 @@
 									</div>
 								</div>
 								<div class="card col col-sm-3 col-lg-3" style="width: 18rem;">
-									<img class="card-img-top" src="{{asset('public/images/IPHONE/12.jpg')}}" alt="Card image cap">
+									<img class="card-img-top" src="<?php echo e(asset('public/images/IPHONE/12.jpg')); ?>" alt="Card image cap">
 									<div class="card-body">
 										<h5 class="card-title">Card title</h5>
 										<p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
@@ -221,7 +215,7 @@
 						  	<div class="row">
 
 						  		<div class="card col col-sm-3 col-lg-3" style="width: 18rem;">
-									<img class="card-img-top" src="{{asset('public/images/IPHONE/12.jpg')}}" alt="Card image cap">
+									<img class="card-img-top" src="<?php echo e(asset('public/images/IPHONE/12.jpg')); ?>" alt="Card image cap">
 									<div class="card-body">
 										<h5 class="card-title">Card title</h5>
 										<p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
@@ -229,7 +223,7 @@
 									</div>
 								</div>
 								<div class="card col col-sm-3 col-lg-3" style="width: 18rem;">
-									<img class="card-img-top" src="{{asset('public/images/IPHONE/12.jpg')}}" alt="Card image cap">
+									<img class="card-img-top" src="<?php echo e(asset('public/images/IPHONE/12.jpg')); ?>" alt="Card image cap">
 									<div class="card-body">
 										<h5 class="card-title">Card title</h5>
 										<p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
@@ -237,7 +231,7 @@
 									</div>
 								</div>
 								<div class="card col col-sm-3 col-lg-3" style="width: 18rem;">
-									<img class="card-img-top" src="{{asset('public/images/IPHONE/12.jpg')}}" alt="Card image cap">
+									<img class="card-img-top" src="<?php echo e(asset('public/images/IPHONE/12.jpg')); ?>" alt="Card image cap">
 									<div class="card-body">
 										<h5 class="card-title">Card title</h5>
 										<p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
@@ -245,7 +239,7 @@
 									</div>
 								</div>
 								<div class="card col col-sm-3 col-lg-3" style="width: 18rem;">
-									<img class="card-img-top" src="{{asset('public/images/IPHONE/12.jpg')}}" alt="Card image cap">
+									<img class="card-img-top" src="<?php echo e(asset('public/images/IPHONE/12.jpg')); ?>" alt="Card image cap">
 									<div class="card-body">
 										<h5 class="card-title">Card title</h5>
 										<p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
@@ -264,7 +258,7 @@
 						  	<div class="row">
 
 						  		<div class="card col col-sm-3 col-lg-3" style="width: 18rem;">
-									<img class="card-img-top" src="{{asset('public/images/IPHONE/12.jpg')}}" alt="Card image cap">
+									<img class="card-img-top" src="<?php echo e(asset('public/images/IPHONE/12.jpg')); ?>" alt="Card image cap">
 									<div class="card-body">
 										<h5 class="card-title">Card title</h5>
 										<p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
@@ -272,7 +266,7 @@
 									</div>
 								</div>
 								<div class="card col col-sm-3 col-lg-3" style="width: 18rem;">
-									<img class="card-img-top" src="{{asset('public/images/IPHONE/12.jpg')}}" alt="Card image cap">
+									<img class="card-img-top" src="<?php echo e(asset('public/images/IPHONE/12.jpg')); ?>" alt="Card image cap">
 									<div class="card-body">
 										<h5 class="card-title">Card title</h5>
 										<p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
@@ -280,7 +274,7 @@
 									</div>
 								</div>
 								<div class="card col col-sm-3 col-lg-3" style="width: 18rem;">
-									<img class="card-img-top" src="{{asset('public/images/IPHONE/12.jpg')}}" alt="Card image cap">
+									<img class="card-img-top" src="<?php echo e(asset('public/images/IPHONE/12.jpg')); ?>" alt="Card image cap">
 									<div class="card-body">
 										<h5 class="card-title">Card title</h5>
 										<p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
@@ -288,7 +282,7 @@
 									</div>
 								</div>
 								<div class="card col col-sm-3 col-lg-3" style="width: 18rem;">
-									<img class="card-img-top" src="{{asset('public/images/IPHONE/12.jpg')}}" alt="Card image cap">
+									<img class="card-img-top" src="<?php echo e(asset('public/images/IPHONE/12.jpg')); ?>" alt="Card image cap">
 									<div class="card-body">
 										<h5 class="card-title">Card title</h5>
 										<p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
@@ -300,7 +294,7 @@
 						  	<div class="row">
 
 						  		<div class="card col col-sm-3 col-lg-3" style="width: 18rem;">
-									<img class="card-img-top" src="{{asset('public/images/IPHONE/12.jpg')}}" alt="Card image cap">
+									<img class="card-img-top" src="<?php echo e(asset('public/images/IPHONE/12.jpg')); ?>" alt="Card image cap">
 									<div class="card-body">
 										<h5 class="card-title">Card title</h5>
 										<p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
@@ -308,7 +302,7 @@
 									</div>
 								</div>
 								<div class="card col col-sm-3 col-lg-3" style="width: 18rem;">
-									<img class="card-img-top" src="{{asset('public/images/IPHONE/12.jpg')}}" alt="Card image cap">
+									<img class="card-img-top" src="<?php echo e(asset('public/images/IPHONE/12.jpg')); ?>" alt="Card image cap">
 									<div class="card-body">
 										<h5 class="card-title">Card title</h5>
 										<p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
@@ -316,7 +310,7 @@
 									</div>
 								</div>
 								<div class="card col col-sm-3 col-lg-3" style="width: 18rem;">
-									<img class="card-img-top" src="{{asset('public/images/IPHONE/12.jpg')}}" alt="Card image cap">
+									<img class="card-img-top" src="<?php echo e(asset('public/images/IPHONE/12.jpg')); ?>" alt="Card image cap">
 									<div class="card-body">
 										<h5 class="card-title">Card title</h5>
 										<p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
@@ -324,7 +318,7 @@
 									</div>
 								</div>
 								<div class="card col col-sm-3 col-lg-3" style="width: 18rem;">
-									<img class="card-img-top" src="{{asset('public/images/IPHONE/12.jpg')}}" alt="Card image cap">
+									<img class="card-img-top" src="<?php echo e(asset('public/images/IPHONE/12.jpg')); ?>" alt="Card image cap">
 									<div class="card-body">
 										<h5 class="card-title">Card title</h5>
 										<p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
@@ -339,21 +333,6 @@
 		</div>
 	</div>
 
-{{--
-<div class="container">
-  	<div class="row">
-	    <div class="col col-sm-3 col-lg-3">
-	      <image src="{{asset('public/images/logo.png')}}" alt="cc"/>
-	    </div>
-	    <div class="col col-sm-3 col-lg-3">
-	      <image src="{{asset('public/images/logo.png')}}" alt="cc"/>
-	    </div>
-	    <div class="col col-sm-3 col-lg-3">
-	      <image src="{{asset('public/images/logo.png')}}" alt="cc"/>
-	    </div>
-	    <div class="col col-sm-3 col-lg-3">
-	      <image src="{{asset('public/images/logo.png')}}" alt="cc"/>
-	    </div>
-  	</div>
-</div>--}}
-@endsection
+
+<?php $__env->stopSection(); ?>
+<?php echo $__env->make('layouts.app', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH E:\Wamp\www\CNWeb_triet\CNWeb\resources\views/home.blade.php ENDPATH**/ ?>
