@@ -41,10 +41,10 @@
 			<div class="collapse navbar-collapse" id="navbarSupportedContent">
 				<ul class="navbar-nav mr-auto">
 					<?php if(auth()->guard()->check()): ?>
-						<li class="nav-item"><a class="nav-link" href="<?php echo e(url('/lop')); ?>"><i class="fal fa-home"></i> Lớp</a></li>
-						<li class="nav-item"><a class="nav-link" href="<?php echo e(url('/sinhvien')); ?>"><i class="fal fa-users"></i> Sinh viên</a></li>
+						<li class="nav-item"><a class="nav-link" href="<?php echo e(route('danhmuc')); ?>"><i class="fal fa-home"></i> Danh Mục</a></li>
+						<li class="nav-item"><a class="nav-link" href="<?php echo e(route('sanpham')); ?>"><i class="fal fa-users"></i>Sản Phẩm</a></li>
 					<?php endif; ?>
-					<li class="nav-item"><a class="nav-link" href="<?php echo e(url('/contact')); ?>"><i class="fal fa-users"></i> Liên hệ</a></li>
+					<li class="nav-item"><a class="nav-link" href="<?php echo e(route('contact')); ?>"><i class="fal fa-users"></i> Liên hệ</a></li>
 				</ul>
 				<ul class="navbar-nav ml-auto">
 					<?php if(auth()->guard()->guest()): ?>

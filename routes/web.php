@@ -12,30 +12,30 @@
 */
 Auth::routes(['register' => true, 'reset' => true]);
 
-Route::get('/home', 'HomeController@getHome')->name('home');
+Route::get('/', 'HomeController@getHome')->name('home');
 
 //contact
 Route::get('/contact', [
     'uses' => 'ContactUsFormController@createForm'
-])->name('/contact');
+])->name('contact');
 
 Route::post('/contact', [
     'uses' => 'ContactUsFormController@ContactUsForm',
     'as' => 'contact.store'
 ]);
 
-// Lớp
-Route::get('/lop', 'LopController@getDanhSach');
-Route::get('/lop/them', 'LopController@getThem');
-Route::post('/lop/them', 'LopController@postThem');
-Route::get('/lop/sua/{id}', 'LopController@getSua');
-Route::post('/lop/sua/{id}', 'LopController@postSua');
-Route::get('/lop/xoa/{id}', 'LopController@getXoa');
-Route::post('/lop/xoa/{id}', 'LopController@postXoa');
+// Sản phẩm
+Route::get('/sanpham', 'SanPhamController@getDanhSach')->name('sanpham');
+Route::get('/sanpham/them', 'SanPhamController@getThem');
+Route::post('/sanpham/them', 'SanPhamController@postThem');
+Route::get('/sanpham/sua/{id}', 'SanPhamController@getSua');
+Route::post('/sanpham/sua/{id}', 'SanPhamController@postSua');
+Route::get('/sanpham/xoa/{id}', 'SanPhamController@getXoa');
+Route::post('/sanpham/xoa/{id}', 'SanPhamController@postXoa');
 
 // danh mục
 
-Route::get('/danhmuc', 'DanhMucController@getDanhSach');
+Route::get('/danhmuc', 'DanhMucController@getDanhSach')->name('danhmuc');
 Route::get('/danhmuc/them', 'DanhMucController@getThem');
 Route::post('/danhmuc/them', 'DanhMucController@postThem');
 Route::get('/danhmuc/sua/{id}', 'DanhMucController@getSua');

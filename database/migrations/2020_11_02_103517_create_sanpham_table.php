@@ -16,10 +16,10 @@ class CreateSanphamTable extends Migration
         Schema::create('sanpham', function (Blueprint $table) {
             $table->id();
             $table->unsignedBigInteger('danhmuc_id')->nullable();
-            $table->string('tensanpham')->unique();
+            $table->string('tensanpham');
             $table->string('mota');
             $table->string('hinhanh');
-            $table->float('giatien', 10, 2)->unique();
+            $table->float('giatien', 10, 2);
             $table->timestamps();
             $table->foreign('danhmuc_id')->references('id')->on('danhmuc');
         });

@@ -40,10 +40,10 @@
 			<div class="collapse navbar-collapse" id="navbarSupportedContent">
 				<ul class="navbar-nav mr-auto">
 					@auth
-						<li class="nav-item"><a class="nav-link" href="{{ url('/lop') }}"><i class="fal fa-home"></i> Lớp</a></li>
-						<li class="nav-item"><a class="nav-link" href="{{ url('/sinhvien') }}"><i class="fal fa-users"></i> Sinh viên</a></li>
+						<li class="nav-item"><a class="nav-link" href="{{ route('danhmuc') }}"><i class="fal fa-home"></i> Danh Mục</a></li>
+						<li class="nav-item"><a class="nav-link" href="{{ route('sanpham') }}"><i class="fal fa-users"></i>Sản Phẩm</a></li>
 					@endauth
-					<li class="nav-item"><a class="nav-link" href="{{ url('/contact') }}"><i class="fal fa-users"></i> Liên hệ</a></li>
+					<li class="nav-item"><a class="nav-link" href="{{ route('contact') }}"><i class="fal fa-users"></i> Liên hệ</a></li>
 				</ul>
 				<ul class="navbar-nav ml-auto">
 					@guest

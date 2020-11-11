@@ -13,5 +13,8 @@ class DanhMuc extends Model
 		'id', 'tendanhmuc'
 	];
 	
-	
+	public function SanPham()
+	{
+		return $this->hasMany('App\SanPham');
+	}
 }
