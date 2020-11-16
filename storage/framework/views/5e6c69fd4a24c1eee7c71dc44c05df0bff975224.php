@@ -143,7 +143,10 @@
 									<div class="card-body">
 										<h5 class="card-title"><?php echo e($item->tensanpham); ?></h5>
 										<p class="card-text"><?php echo e($item->mota); ?></p>
-										<a href="#" class="btn btn-primary">Go somewhere</a>
+
+										<a href="<?php echo e(route('chitietsp')); ?>">
+		                                    <button type="submit" class="btn btn-primary">Xem chi tiết<i class="fa fa-chevron-right" aria-hidden="true"></i></button>
+		                                </a>
 									</div>
 								</div>
 								<?php endif; ?>

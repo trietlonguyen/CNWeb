@@ -2,11 +2,11 @@
 
 @section('content')
 	<div class="card">
-		<div class="card-header">Xóa lớp</div>
+		<div class="card-header">Xóa chi tiết</div>
 		<div class="card-body">
-			<form action="{{ url('/khoa/xoa/' . $khoa->id) }}" method="post">
+			<form action="{{ url('/chitietsp/xoa/' . $chitietsp->id) }}" method="post">
 				@csrf
-				<p>Bạn có muốn xóa lớp {{ $khoa->tenkhoa }} không?</p>
+				<p>Bạn có muốn xóa thông tin sản phẩm không?</p>
 				<button type="submit" class="btn btn-danger"><i class="fal fa-save"></i> Xác nhận xóa</button>
 			</form>
 		</div>

@@ -39,10 +39,11 @@
 			</button>
 			<div class="collapse navbar-collapse" id="navbarSupportedContent">
 				<ul class="navbar-nav mr-auto">
-					@auth
+					
 						<li class="nav-item"><a class="nav-link" href="{{ route('danhmuc') }}"><i class="fal fa-home"></i> Danh Mục</a></li>
 						<li class="nav-item"><a class="nav-link" href="{{ route('sanpham') }}"><i class="fal fa-users"></i>Sản Phẩm</a></li>
-					@endauth
+						<li class="nav-item"><a class="nav-link" href="{{ route('chitietsp') }}"><i class="fal fa-users"></i>Chi tiết sản phẩm</a></li>
+					
 					<li class="nav-item"><a class="nav-link" href="{{ route('contact') }}"><i class="fal fa-users"></i> Liên hệ</a></li>
 				</ul>
 				<ul class="navbar-nav ml-auto">

@@ -44,3 +44,14 @@ Route::get('/danhmuc/xoa/{id}', 'DanhMucController@getXoa');
 Route::post('/danhmuc/xoa/{id}', 'DanhMucController@postXoa');
 Route::post('/danhmuc/nhap', 'DanhMucController@postNhap');
 Route::get('/danhmuc/xuat', 'DanhMucController@getXuat');
+
+//Chi tiet sp
+Route::get('/chitietsp', 'ChiTietSPController@getDanhSach')->name('chitietsp');
+Route::get('/chitietsp/them', 'ChiTietSPController@getThem');
+Route::post('/chitietsp/them', 'ChiTietSPController@postThem');
+Route::get('/chitietsp/sua/{id}', 'ChiTietSPController@getSua');
+Route::post('/chitietsp/sua/{id}', 'ChiTietSPController@postSua');
+Route::get('/chitietsp/xoa/{id}', 'ChiTietSPController@getXoa');
+Route::post('/chitietsp/xoa/{id}', 'ChiTietSPController@postXoa');
+Route::post('/chitietsp/nhap', 'ChiTietSPController@postNhap');
+Route::get('/chitietsp/xuat', 'ChiTietSPController@getXuat');

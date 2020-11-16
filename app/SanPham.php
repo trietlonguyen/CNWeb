@@ -13,5 +13,8 @@ class SanPham extends Model
 	{
 		return $this->belongsTo('App\DanhMuc');
 	}
-	
+	public function ChiTietSP()
+	{
+		return $this->hasMany('App\ChiTietSP');
+	}
 }

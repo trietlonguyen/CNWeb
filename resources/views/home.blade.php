@@ -136,7 +136,10 @@
 									<div class="card-body">
 										<h5 class="card-title">{{$item->tensanpham}}</h5>
 										<p class="card-text">{{$item->mota}}</p>
-										<a href="#" class="btn btn-primary">Go somewhere</a>
+
+										<a href="{{ route('chitietsp')}}">
+		                                    <button type="submit" class="btn btn-primary">Xem chi tiết<i class="fa fa-chevron-right" aria-hidden="true"></i></button>
+		                                </a>
 									</div>
 								</div>
 								@endif
