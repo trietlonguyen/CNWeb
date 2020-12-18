@@ -1,64 +1,93 @@
 @extends('layouts.app')
 
 @section('content')
-	<div class="card">
-		<div class="card-header">Chi tiết sản phẩm</div>
-		<div class="card-body">
-			<p><a href="{{ url('/chitietsp/them') }}" class="btn btn-primary"><i class="fal fa-plus"></i> Thêm mới</a></p>
-			<table class="table table-bordered table-sm">
-				<thead>
+<style>
+	.all-center{
+		display: flex;
+		align-items: center;
+		justify-content: center;
+	}
+</style>
+<div class="container">
+	<div class="row ">
+		<div class="col card all-center">
+			
+			  	<img class="rounded" src="{{asset('/public/upload/'.$sanpham['hinhanh'])}}">
+			  	<h2>{{ $sanpham['tensanpham'] }}</h2>
+			  	<p class="price btn btn-danger font-weight-bold">${{ $sanpham['giatien'] }}</p>
+			  	<p>{{ $sanpham['mota'] }}</p>
+			  	<a href="{{asset('/sanpham/add/'.$sanpham['id'])}}">
+                                    <button type="submit" class="btn btn-danger">Add to cart <i class="fa fa-chevron-right" aria-hidden="true"></i></button>
+                                </a>
+			
+		</div>
 
+		<div class="col">
+			<h2 class="text-center">Thông số kỹ thuật</h2>
+			@if(empty($chitietsp))
+			<p><a href="{{ url('/chitietsp/them/'.$sanpham['id']) }}" class="btn btn-primary"><i class="fal fa-plus"></i> Thêm mới</a></p>
+			@endif
+			<table class="table table-bordered table-sm" >
+				<thead>
 					<tr>
-						<th class="w-5">STT</th>
-						<th class="w-10">Tên Sản Phẩm</th>
-						<th>Màn hình</th>
-						<th class="w-15">Hệ điều hành</th>
-						<th class="w-15">Camera sau</th>
-						<th class="w-15">Camera trước</th>
-						<th class="w-15">CPU</th>
-						<th class="w-15">RAM</th>
-						<th class="w-15">Bộ nhớ trong</th>
-						<th class="w-15">Thẻ nhớ</th>
-						<th class="w-15">SIM</th>
-						<th class="w-15">PIN</th>
-						<th class="w-15">Sạc</th>
-						<th class="w-15">Tai Nghe</th>
-						<th class="w-15">Ngày Sửa</th>
-						<th class="w-15">Ngày Xóa</th>
-						<th class="w-5">Sửa</th>
-						<th class="w-5">Xóa</th>
+						<td class="title-item">Tên Sản Phẩm</td>
+						<td>{{ $chitietsp['sanpham_id'] }}</td>
+					</tr>
+					<tr>
+						<td class="title-item">Màn hình</td>
+						<td>{{ $chitietsp['manhinh'] }}</td>
+					</tr>
+					<tr>
+						<td class="title-item">Hệ điều hành</td>
+						<td>{{ $chitietsp['os'] }}</td>
+					</tr>
+					<tr>
+						<td class="title-item">Camera sau</td>
+						<td>{{ $chitietsp['camera_sau'] }}</td>
+					</tr>
+					<tr>
+						<td class="title-item">Camera trước</td>
+						<td>{{ $chitietsp['camera_truoc'] }}</td>
+					</tr>
+					<tr>
+						<td class="title-item">CPU</td>
+						<td>{{ $chitietsp['cpu'] }}</td>
+					</tr>
+					<tr>
+						<td class="title-item">RAM</td>
+						<td>{{ $chitietsp['ram'] }}</td>
+					</tr>
+					<tr>
+						<td class="title-item">Bộ nhớ trong</td>
+						<td>{{ $chitietsp['bonhotrong'] }}</td>
+					</tr>
+					<tr>
+						<td class="title-item">Thẻ nhớ</td>
+						<td>{{ $chitietsp['thenho'] }}</td>
+					</tr>
+					<tr>
+						<td class="title-item">SIM</td>
+						<td>{{ $chitietsp['sim'] }}</td>
+					</tr>
+					<tr>
+						<td class="title-item">PIN</td>
+						<td>{{ $chitietsp['pin'] }}</td>
+					</tr>
+					<tr>
+						<td class="title-item">Sạc</td>
+						<td>{{ $chitietsp['pk_sac'] }}</td>
+					</tr>
+					<tr>
+						<td class="title-item">Tai Nghe</td>
+						<td>{{ $chitietsp['pk_tainghe'] }}</td>
+					</tr>
+					<tr>
+						<td class="text-center"><a href="{{ url('/chitietsp/sua/' . $sanpham['id']) }}">Sửa <i class="fal fa-edit"></i></a></td>
+						<td class="text-center"><a href="{{ url('/chitietsp/xoa/' . $sanpham['id']) }}">Xóa <i class="fal fa-trash-alt text-danger"></i></a></td>
 					</tr>
 				</thead>
-				<tbody>
-					@foreach($chitietsp as $value)
-						<tr>
-							<td>{{ $loop->iteration }}</td>
-
-							@foreach($sanpham as $sp)
-							
-							<td>{{ $sp->tensanpham }}</td>
-
-							@endforeach
-							<td>{{ $value->manhinh }}</td>
-							<td>{{ $value->os }}</td>
-							<td>{{ $value->camera_sau }}</td>
-							<td>{{ $value->camera_truoc }}</td>
-							<td>{{ $value->cpu }}</td>
-							<td>{{ $value->ram }}</td>
-							<td>{{ $value->bonhotrong }}</td>
-							<td>{{ $value->thenho }}</td>
-							<td>{{ $value->sim }}</td>
-							<td>{{ $value->pin }}</td>
-							<td>{{ $value->pk_sac }}</td>
-							<td>{{ $value->pk_tainghe }}</td>
-							<td>{{ $value->created_at }}</td>
-							<td>{{ $value->updated_at }}</td>
-							<td class="text-center"><a href="{{ url('/chitietsp/sua/' . $value->id) }}"><i class="fal fa-edit"></i></a></td>
-							<td class="text-center"><a href="{{ url('/chitietsp/xoa/' . $value->id) }}"><i class="fal fa-trash-alt text-danger"></i></a></td>
-						</tr>
-					@endforeach
-				</tbody>
 			</table>
 		</div>
 	</div>
+</div>
 @endsection

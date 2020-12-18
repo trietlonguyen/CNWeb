@@ -10,8 +10,8 @@
 					<label for="danhmuc_id">Danh mục</label>
 					<select class="form-control @error('danhmuc_id') is-invalid @enderror" id="danhmuc_id" name="danhmuc_id">
 						<option>Chọn danh mục</option>
-						@foreach($sanpham as $value)
-							<option value="{{ $value->id }}">{{ $value->tensanpham }}</option>
+						@foreach($danhmuc as $value)
+							<option value="{{ $value->id }}">{{ $value->tendanhmuc }}</option>
 						@endforeach
 					</select>
 					@error('danhmuc_id')

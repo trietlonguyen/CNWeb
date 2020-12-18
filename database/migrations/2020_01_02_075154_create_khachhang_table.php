@@ -13,17 +13,15 @@ class CreateKhachhangTable extends Migration
 	 */
 	public function up()
 	{
-		Schema::create('khachhang', function (Blueprint $table) {
-			$table->string('id', 9);
-			$table->string('holot', 50);
-			$table->string('ten', 20);
-			$table->date('ngaysinh')->nullable();
-			$table->string('dienthoai', 20)->nullable();
-			$table->string('email', 100)->nullable();
-			$table->text('ghichu')->nullable();
-			$table->timestamps();
-			$table->primary('id');
-		});
+		Schema::create('carts', function (Blueprint $table) {
+            $table->id();
+            $table->unsignedBigInteger('nguoidung_id');
+            $table->string('product');
+            $table->integer('soluong');
+            $table->float('price', 20, 2)->comment('gia');
+            $table->foreign('nguoidung_id')->references('id')->on('nguoidung');
+            $table->timestamps();
+        });
 	}
 	
 	/**
@@ -33,6 +31,6 @@ class CreateKhachhangTable extends Migration
 	 */
 	public function down()
 	{
-		Schema::dropIfExists('khachhang');
+		Schema::dropIfExists('carts');
 	}
 }

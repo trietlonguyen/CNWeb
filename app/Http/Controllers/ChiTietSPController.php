@@ -9,26 +9,28 @@ use Illuminate\Http\Request;
 class ChiTietSPController extends Controller
 {
 	// Danh sách
-	public function getDanhSach()
+	public function getDanhSach($id_sp)
 	{
-        $sanpham = SanPham::where('id')->latest()->get();
-        $chitietsp = ChiTietSP::all();
+        $sanpham = SanPham::where('id', $id_sp)->first();
+        $chitietsp = ChiTietSP::where('sanpham_id', $id_sp)->first();
+
 		return view('chitietsp.danhsach', compact('chitietsp','sanpham'));
 	}
 	
 	// Form thêm
-	public function getThem()
+	public function getThem($id_sp)
 	{
-		$sanpham = SanPham::where('id')->latest()->get();
-		$chitietsp = ChiTietSP::all();
+		$sanpham = SanPham::where('id', $id_sp)->first();
+        $chitietsp = ChiTietSP::where('sanpham_id', $id_sp)->first();
 		return view('chitietsp.them', compact('chitietsp','sanpham'));
 	}
 	
 	// Xử lý thêm
-	public function postThem(Request $request)
+	public function postThem($id_sp, Request $request)
 	{
+
 		$request->validate([
-			'sanpham_id' => 'required',
+			'sanpham_id' => $id_sp,
 			'manhinh' => 'required',
 			'os' => 'required',
 			'camera_sau' => 'required',
@@ -44,7 +46,8 @@ class ChiTietSPController extends Controller
 		]);
 		
 		$sp = new ChiTietSP();
-		$sp->sanpham_id = $request->sanpham_id;
+		$sp->sanpham_id = $id_sp;
+
 		$sp->manhinh = $request->manhinh;
 		$sp->os = $request->os;
 		$sp->camera_sau = $request->camera_sau;
@@ -61,7 +64,7 @@ class ChiTietSPController extends Controller
 		$sp->updated_at  = Carbon::now();
 		$sp->save();
 		
-		return redirect('/chitietsp');
+		return redirect('/');
 	}
 	
 	// Form sửa

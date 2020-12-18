@@ -21,7 +21,7 @@ unset($__errorArgs, $__bag); ?>" id="danhmuc_id" name="danhmuc_id">
 							<option value="<?php echo e($value->id); ?>"><?php echo e($value->tendanhmuc); ?></option>
 						<?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
 					</select>
-					<?php $__errorArgs = ['danhmuc'];
+					<?php $__errorArgs = ['danhmuc_id'];
 $__bag = $errors->getBag($__errorArgs[1] ?? 'default');
 if ($__bag->has($__errorArgs[0])) :
 if (isset($message)) { $__messageOriginal = $message; }

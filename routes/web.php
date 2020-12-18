@@ -24,6 +24,23 @@ Route::post('/contact', [
     'as' => 'contact.store'
 ]);
 
+// Giỏ hàng
+Route::get('/cart', 'RegisProductsController@list')->name('cart');
+Route::post('/cart', 'BillController@send')->name('send-cart');
+
+
+//Bill
+Route::get('/bill', 'BillController@list')->name('bill');
+Route::get('/bill/xoa/{id}', 'BillController@getXoa')->name('delete-donhang');
+Route::post('/bill/xoa/{id}', 'BillController@postXoa');
+Route::get('/bill/duyet/{id}', 'BillController@duyet')->name('duyet');
+
+// Mã giảm giá
+Route::get('ma-giam-gia/them', 'DiscountCodeController@discountCodeAddForm')->name('discount-code-add-form');
+Route::post('ma-giam-gia/them', 'DiscountCodeController@discountCodeAdd')->name('discount-code-add');
+
+
+
 // Sản phẩm
 Route::get('/sanpham', 'SanPhamController@getDanhSach')->name('sanpham');
 Route::get('/sanpham/them', 'SanPhamController@getThem');
@@ -46,12 +63,16 @@ Route::post('/danhmuc/nhap', 'DanhMucController@postNhap');
 Route::get('/danhmuc/xuat', 'DanhMucController@getXuat');
 
 //Chi tiet sp
-Route::get('/chitietsp', 'ChiTietSPController@getDanhSach')->name('chitietsp');
-Route::get('/chitietsp/them', 'ChiTietSPController@getThem');
-Route::post('/chitietsp/them', 'ChiTietSPController@postThem');
+Route::get('/chitietsp/{id}', 'ChiTietSPController@getDanhSach')->name('chitietsp');
+Route::get('/chitietsp/them/{id}', 'ChiTietSPController@getThem');
+Route::post('/chitietsp/them/{id}', 'ChiTietSPController@postThem')->name('post.them');
 Route::get('/chitietsp/sua/{id}', 'ChiTietSPController@getSua');
 Route::post('/chitietsp/sua/{id}', 'ChiTietSPController@postSua');
 Route::get('/chitietsp/xoa/{id}', 'ChiTietSPController@getXoa');
 Route::post('/chitietsp/xoa/{id}', 'ChiTietSPController@postXoa');
 Route::post('/chitietsp/nhap', 'ChiTietSPController@postNhap');
 Route::get('/chitietsp/xuat', 'ChiTietSPController@getXuat');
+
+//add sanpham
+Route::get('/sanpham/add/{id}', 'RegisProductsController@getThem');
+Route::post('/sanpham/add/{id}', 'RegisProductsController@postThem')->name('add-products');

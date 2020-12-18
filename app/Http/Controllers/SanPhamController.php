@@ -87,16 +87,16 @@ class SanPhamController extends Controller
 	// Xác nhận xóa
 	public function getXoa($id)
 	{
-		$lop = SanPham::find($id);
-		return view('lop.xoa', compact('lop'));
+		$sanpham = SanPham::find($id);
+		return view('sanpham.xoa', compact('sanpham'));
 	}
 	
 	// Xử lý xóa
 	public function postXoa(Request $request, $id)
 	{
-		$lop = SanPham::find($id);
-		$lop->delete();
+		$sanpham = SanPham::find($id);
+		$sanpham->delete();
 		
-		return redirect('/lop');
+		return redirect('/sanpham');
 	}
 }

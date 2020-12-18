@@ -14,6 +14,7 @@ class CreateChitietspTable extends Migration
     public function up()
     {
         Schema::create('chitietsp', function (Blueprint $table) {
+            $table->id();
             $table->unsignedBigInteger('sanpham_id')->nullable();
             $table->string('manhinh')->nullable();
             $table->string('os')->nullable();

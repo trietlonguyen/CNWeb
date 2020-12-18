@@ -30,6 +30,21 @@ class NguoiDung extends Authenticatable
 	{
 		$this->notify(new CustomResetPasswordNotification($token));
 	}
+
+	
+	public function regisProducts()
+	{
+		return $this->hasMany(RegisProducts::class, 'nguoidung_id', 'id');
+	}
+
+	public function bill()
+	{
+		return $this->hasMany(Bill::class);
+	}
+	public function order()
+	{
+		return $this->hasMany(Order::class);
+	}
 }
 
 class CustomResetPasswordNotification extends ResetPassword

@@ -8,7 +8,10 @@ use Carbon\Carbon;
 
 class DanhMucController extends Controller
 {
-    
+    public function __construct()
+	{
+		$this->middleware('auth');
+	}
 	
 	// Danh sách
 	public function getDanhSach()

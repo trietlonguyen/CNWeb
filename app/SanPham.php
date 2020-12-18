@@ -17,4 +17,16 @@ class SanPham extends Model
 	{
 		return $this->hasMany('App\ChiTietSP');
 	}
+	public function regisProducts()
+	{
+		return $this->belongsTo('App\RegisProducts');
+	}
+	public function bill()
+    {
+        return $this->hasMany(Bill::class);
+    }
+    public function order()
+    {
+        return $this->hasMany(Order::class);
+    }
 }
