@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 use App\DanhMuc;
 use App\SanPham;
 use Carbon\Carbon;
+use App\ChiTietSP;
 use Illuminate\Http\Request;
 
 class SanPhamController extends Controller
@@ -26,6 +27,14 @@ class SanPhamController extends Controller
 	{
 		$danhmuc = DanhMuc::all();
 		return view('sanpham.them', compact('danhmuc'));
+	}
+
+	public function search(Request $req)
+	{
+		$chitietsp = ChiTietSP::all();
+		$sanpham = SanPham::where('tensanpham', 'LIKE', "%$req->searchString%")->get();
+		$danhmuc = DanhMuc::all();
+		return view('search', compact('danhmuc','sanpham','chitietsp'));
 	}
 	
 	// Xử lý thêm
@@ -63,25 +72,40 @@ class SanPhamController extends Controller
 	// Form sửa
 	public function getSua($id)
 	{
-		$lop = SanPham::find($id);
-		return view('lop.sua', compact('lop'));
+		$danhmuc = DanhMuc::all();
+		$sanpham = SanPham::find($id);
+		$sp = SanPham::where('id', $id)->latest()->get();
+		return view('sanpham.sua', compact('sanpham','danhmuc','sp'));
+		// dd($hangxe);
 	}
 	
 	// Xử lý sửa
 	public function postSua(Request $request, $id)
-	{
-		$request->validate([
-			'id' => 'required|max:8|unique:lop,id,' . $id,
-			'tenlop' => 'required|max:50',
-		]);
+	{	
+	
+
+		$sanpham = SanPham::find($id);
+		$sanpham->danhmuc_id = $request->danhmuc_id;
+		$sanpham->tensanpham = $request->tensanpham;
+		$sanpham->mota = $request->mota;
+		$sanpham->giatien = $request->giatien;
+
+		if($request->hasFile('hinhanh')){
+
+            $fImage = $request->file('hinhanh');
+            $bientam = time().'_'.$fImage->getClientOriginalName();
+            $destinationPath = public_path('/upload');
+            $fImage->move($destinationPath,$bientam);
+            $sanpham->hinhanh = $bientam;
+        }
+        else{
+        	$sanpham->hinhanh = $request->hinhcu;
+        }
+
+		$sanpham->updated_at  = Carbon::now();
+		$sanpham->save();
 		
-		$lop = SanPham::find($id);
-		$lop->id = $request->id;
-		$lop->tenlop = $request->tenlop;
-		$lop->updated_at  = Carbon::now();
-		$lop->save();
-		
-		return redirect('/lop');
+		return redirect('/sanpham');
 	}
 	
 	// Xác nhận xóa
@@ -98,5 +122,19 @@ class SanPhamController extends Controller
 		$sanpham->delete();
 		
 		return redirect('/sanpham');
+	}
+
+	// Nhập từ Excel
+	public function postNhap(Request $request)
+	{
+		Excel::import(new SanPhamImport, $request->TapTinExcel);
+		
+		return redirect('/sanpham');
+	}
+	
+	// Xuất ra Excel
+	public function getXuat()
+	{
+		return Excel::download(new SanPhamExport, 'ds_sanpham.xlsx');
 	}
 }

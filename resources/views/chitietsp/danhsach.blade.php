@@ -12,27 +12,28 @@
 	<div class="row ">
 		<div class="col card all-center">
 			
-			  	<img class="rounded" src="{{asset('/public/upload/'.$sanpham['hinhanh'])}}">
+			  	<img class="rounded" src="{{asset('/public/upload/'.$sanpham['hinhanh'])}}" height="400px">
 			  	<h2>{{ $sanpham['tensanpham'] }}</h2>
-			  	<p class="price btn btn-danger font-weight-bold">${{ $sanpham['giatien'] }}</p>
+			  	<p class="price btn btn-warning font-weight-bold">{{number_format($sanpham['giatien'])  }}VNĐ</p>
 			  	<p>{{ $sanpham['mota'] }}</p>
 			  	<a href="{{asset('/sanpham/add/'.$sanpham['id'])}}">
-                                    <button type="submit" class="btn btn-danger">Add to cart <i class="fa fa-chevron-right" aria-hidden="true"></i></button>
+                                    <button type="submit" class="btn btn-warning">MUA NGAY <i class="fa fa-chevron-right" aria-hidden="true"></i></button>
                                 </a>
 			
 		</div>
 
 		<div class="col">
 			<h2 class="text-center">Thông số kỹ thuật</h2>
+			@auth()
+			@if(auth()->user()->level==1)
 			@if(empty($chitietsp))
 			<p><a href="{{ url('/chitietsp/them/'.$sanpham['id']) }}" class="btn btn-primary"><i class="fal fa-plus"></i> Thêm mới</a></p>
 			@endif
+			@endif
+			@endauth
 			<table class="table table-bordered table-sm" >
 				<thead>
-					<tr>
-						<td class="title-item">Tên Sản Phẩm</td>
-						<td>{{ $chitietsp['sanpham_id'] }}</td>
-					</tr>
+					
 					<tr>
 						<td class="title-item">Màn hình</td>
 						<td>{{ $chitietsp['manhinh'] }}</td>
@@ -82,9 +83,12 @@
 						<td>{{ $chitietsp['pk_tainghe'] }}</td>
 					</tr>
 					<tr>
-						<td class="text-center"><a href="{{ url('/chitietsp/sua/' . $sanpham['id']) }}">Sửa <i class="fal fa-edit"></i></a></td>
-						<td class="text-center"><a href="{{ url('/chitietsp/xoa/' . $sanpham['id']) }}">Xóa <i class="fal fa-trash-alt text-danger"></i></a></td>
-					</tr>
+						@auth()
+			@if(auth()->user()->level==1)
+						<td class="text-center"><a href="{{ url('/chitietsp/sua/' . $chitietsp['id']) }}">Sửa <i class="fal fa-edit"></i></a></td>
+						<td class="text-center"><a href="{{ url('/chitietsp/xoa/' . $chitietsp['id']) }}">Xóa <i class="fal fa-trash-alt text-danger"></i></a></td>
+					</tr>@endif
+					@endauth
 				</thead>
 			</table>
 		</div>

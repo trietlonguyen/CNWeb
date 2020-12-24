@@ -51,6 +51,7 @@
 
 <div class="row w-100 h-100">
 		<h3 class="text-dark text-center w-100 font-weight-bold rounded"><hr />Danh Mục</h3>
+		
 		<ul class="nav nav-pills mb-3 w-100" id="pills-tab" role="tablist" style="display: flex;align-items: center;justify-content: center;">
 			@csrf
 		  	<li class="nav-item tab">

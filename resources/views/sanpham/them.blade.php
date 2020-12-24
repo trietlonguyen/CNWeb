@@ -18,7 +18,7 @@
 						<span class="invalid-feedback" role="alert">{{ $message }}</span>
 					@enderror
 				</div>
-				
+				 
 				<div class="form-group">
 					<label for="tensanpham">Tên sản phẩm</label>
 					<input type="text" class="form-control @error('tensanpham') is-invalid @enderror" id="tensanpham" name="tensanpham" />

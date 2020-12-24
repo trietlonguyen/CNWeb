@@ -65,9 +65,9 @@ class BillController extends Controller
 			'status',
 		]);
 		
-		$bill = Bill::where('id', $id)->first();
-		$bill->status = $bill->status=1;
-		$bill->save();
+		$order = Order::where('id', $id)->first();
+		$order->status = $order->status=1;
+		$order->save();
 		return redirect('/bill');
 	
 	}

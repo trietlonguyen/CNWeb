@@ -12,6 +12,12 @@ class DiscountCodeController extends Controller
         return view('discount_codes.add');
     }
 
+    public function list(Request $request)
+    {
+        $code = DiscountCode::all();
+        return view('discount_codes.list', compact('code'));
+    }
+
     public function discountCodeAdd(Request $request)
     {
         $this->validate($request,
@@ -28,5 +34,20 @@ class DiscountCodeController extends Controller
         );
 
         return back()->with('success', 'Thêm thành công');
+    }
+
+    public function getXoa($id)
+    {
+        $code = DiscountCode::find($id);
+        return view('discount_codes.xoa', compact('code'));
+    }
+    
+    // Xử lý xóa
+    public function postXoa(Request $request, $id)
+    {
+        $code = DiscountCode::find($id);
+        $code->delete();
+        
+        return redirect('/discount');
     }
 }

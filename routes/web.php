@@ -36,14 +36,17 @@ Route::post('/bill/xoa/{id}', 'BillController@postXoa');
 Route::get('/bill/duyet/{id}', 'BillController@duyet')->name('duyet');
 
 // Mã giảm giá
-Route::get('ma-giam-gia/them', 'DiscountCodeController@discountCodeAddForm')->name('discount-code-add-form');
-Route::post('ma-giam-gia/them', 'DiscountCodeController@discountCodeAdd')->name('discount-code-add');
-
+Route::get('/discount', 'DiscountCodeController@list')->name('list');
+Route::get('/discount/them', 'DiscountCodeController@discountCodeAddForm')->name('discount-code-add-form');
+Route::post('/discount/them', 'DiscountCodeController@discountCodeAdd')->name('discount-code-add');
+Route::get('/discount/xoa/{id}', 'DiscountCodeController@getXoa');
+Route::post('/discount/xoa/{id}', 'DiscountCodeController@postXoa');
 
 
 // Sản phẩm
 Route::get('/sanpham', 'SanPhamController@getDanhSach')->name('sanpham');
 Route::get('/sanpham/them', 'SanPhamController@getThem');
+Route::get('/sanpham/tim', 'SanPhamController@search');
 Route::post('/sanpham/them', 'SanPhamController@postThem');
 Route::get('/sanpham/sua/{id}', 'SanPhamController@getSua');
 Route::post('/sanpham/sua/{id}', 'SanPhamController@postSua');

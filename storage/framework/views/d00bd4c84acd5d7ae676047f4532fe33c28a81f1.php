@@ -26,6 +26,13 @@
 	<link href="<?php echo e(asset('public/css/bootstrap.min.css')); ?>" rel="stylesheet" />
 	<link href="<?php echo e(asset('public/css/fontawesome.min.css')); ?>" rel="stylesheet" />
 	<link href="<?php echo e(asset('public/css/custom.css')); ?>" rel="stylesheet" />
+	<style type="text/css">
+		.all-center{
+			display: flex;
+			align-items: center;
+			justify-content: center;
+		}
+	</style>
 </head>
 <body>
 	<div class="container-fluid">
@@ -41,12 +48,32 @@
 			<div class="collapse navbar-collapse" id="navbarSupportedContent">
 				<ul class="navbar-nav mr-auto">
 					<?php if(auth()->guard()->check()): ?>
-						<li class="nav-item"><a class="nav-link" href="<?php echo e(url('/lop')); ?>"><i class="fal fa-home"></i> Lớp</a></li>
-						<li class="nav-item"><a class="nav-link" href="<?php echo e(url('/sinhvien')); ?>"><i class="fal fa-users"></i> Sinh viên</a></li>
+					<?php if( auth()->user()->level == 1): ?>
+					<li class="nav-item"><a class="nav-link" href="<?php echo e(route('danhmuc')); ?>"><i class="fal fa-home"></i> Danh Mục</a></li>
+					<li class="nav-item"><a class="nav-link" href="<?php echo e(route('sanpham')); ?>"><i class="fal fa-users"></i>Sản Phẩm</a></li>
+					
+					
+					<li class="nav-item"><a class="nav-link" href="<?php echo e(route('list')); ?>"><i class="fal fa-users"></i> Mã giảm giá</a></li>
 					<?php endif; ?>
-					<li class="nav-item"><a class="nav-link" href="<?php echo e(url('/contact')); ?>"><i class="fal fa-users"></i> Liên hệ</a></li>
+
+					<li class="nav-item"><a class="nav-link" href="<?php echo e(route('bill')); ?>"><i class="fal fa-users"></i> Hóa Đơn</a></li>
+
+					<li class="nav-item"><a class="nav-link" href="<?php echo e(route('contact')); ?>"><i class="fal fa-users"></i> Liên hệ</a></li>
+					<!-- <li class="nav-item" style="margin-right: 100px;">
+						<form action="<?php echo e(url('/sanpham/tim')); ?>" method="get" enctype="multipart/form-data">
+								<input type="text" name="searchString" />
+								<input type="submit" value="tìm kiếm" />
+						</form>
+					</li> -->
+					<?php endif; ?>
+					
 				</ul>
 				<ul class="navbar-nav ml-auto">
+					
+					<li class="nav-item">
+						<img src="<?php echo e(asset('public/images/icon/cart.svg')); ?>" width="60" height="30" alt="cart" />
+						<a id="cart-text" class="nav-link" href="<?php echo e(route('cart')); ?>">Giỏ hàng</a>
+					</li>
 					<?php if(auth()->guard()->guest()): ?>
 						<li class="nav-item"><a class="nav-link" href="<?php echo e(route('login')); ?>"><i class="fal fa-sign-in-alt"></i> Đăng nhập</a></li>
 						<?php if(Route::has('register')): ?>

@@ -70,25 +70,32 @@ class ChiTietSPController extends Controller
 	// Form sửa
 	public function getSua($id)
 	{
-		$khoa = Khoa::find($id);
-		return view('khoa.sua', compact('khoa'));
+		$chitietsp = ChiTietSP::find($id);
+		return view('chitietsp.sua', compact('chitietsp'));
 	}
 	
 	// Xử lý sửa
 	public function postSua(Request $request, $id)
 	{
-		$request->validate([
-			'id' => 'required|max:8|unique:khoa,id,' . $id,
-			'tenkhoa' => 'required|max:50',
-		]);
+		$sp = ChiTietSP::find($id);
 		
-		$khoa = Khoa::find($id);
-		$khoa->id = $request->id;
-		$khoa->tenkhoa = $request->tenkhoa;
-		$khoa->updated_at  = Carbon::now();
-		$khoa->save();
+
+		$sp->manhinh = $request->manhinh;
+		$sp->os = $request->os;
+		$sp->camera_sau = $request->camera_sau;
+		$sp->camera_truoc = $request->camera_truoc;
+		$sp->cpu = $request->cpu;
+		$sp->ram = $request->ram;
+		$sp->bonhotrong = $request->bonhotrong;
+		$sp->thenho = $request->thenho;
+		$sp->sim = $request->sim;
+		$sp->pin = $request->pin;
+		$sp->pk_sac = $request->pk_sac;
+		$sp->pk_tainghe = $request->pk_tainghe;
+		$sp->updated_at  = Carbon::now();
+		$sp->save();
 		
-		return redirect('/khoa');
+		return redirect('/');
 	}
 	
 	// Xác nhận xóa
@@ -104,6 +111,6 @@ class ChiTietSPController extends Controller
 		$chitietsp = ChiTietSP::find($id);
 		$chitietsp->delete();
 		
-		return redirect('/chitietsp');
+		return redirect('/');
 	}
 }

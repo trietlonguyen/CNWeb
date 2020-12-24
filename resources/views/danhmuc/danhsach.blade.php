@@ -6,14 +6,12 @@
 		<div class="card-body">
 			<p>
 				<a href="{{ url('/danhmuc/them') }}" class="btn btn-primary"><i class="fal fa-plus"></i> Thêm mới</a>
-				<a href="#nhap" class="btn btn-success" data-toggle="modal" data-target="#importModal"><i class="fal fa-upload"></i> Nhập từ Excel</a>
-				<a href="{{ url('/danhmuc/xuat') }}" class="btn btn-info"><i class="fal fa-download"></i> Xuất ra Excel</a>
+				
 			</p>
 			<table class="table table-bordered table-sm">
 				<thead>
 					<tr>
 						<th>#</th>
-						<th>id</th>
 						<th>Tên danh mục</th>
 						<th>Ngày tạo</th>
 						<th>Ngày sửa</th>
@@ -25,7 +23,6 @@
 					@foreach($danhmuc as $value)
 						<tr>
 							<td>{{ $loop->iteration }}</td>
-							<td>{{ $value->id}}</td>
 							<td>{{ $value->tendanhmuc}}</td>
 							<td>{{ $value->created_at }}</td>
 							<td>{{ $value->updated_at }}</td>

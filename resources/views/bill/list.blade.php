@@ -4,9 +4,7 @@
 	<div class="card">
 		<div class="card-header">Hóa đơn</div>
 		<div class="card-body">
-			<p>
-				<a href="{{ url('/danhmuc/xuat') }}" class="btn btn-info"><i class="fal fa-download"></i> Xuất ra Excel</a>
-			</p>
+			
 			<table class="table table-bordered table-sm">
 				<thead>
 					<tr>
@@ -77,15 +75,15 @@
 								</td>
 								
 								<td>
-									@if($item->status == 0)
+									@if($value->status == 0)
 										đang giao
-									@elseif($item->status == 1)
+									@elseif($value->status == 1)
 										Đã giao hàng
 									@endif
 								</td>
 								
 								<td>
-									@if($item->status == 0 && auth()->user()->level == 1)
+									@if($value->status == 0 && auth()->user()->level == 1)
 									<a href="{{route('duyet', ['id' => $value->id])}}">
 										Xác nhận giao hàng
 									</a>

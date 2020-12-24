@@ -46,14 +46,29 @@
 			</button>
 			<div class="collapse navbar-collapse" id="navbarSupportedContent">
 				<ul class="navbar-nav mr-auto">
-					
+					@auth
+					@if( auth()->user()->level == 1)
 					<li class="nav-item"><a class="nav-link" href="{{ route('danhmuc') }}"><i class="fal fa-home"></i> Danh Mục</a></li>
 					<li class="nav-item"><a class="nav-link" href="{{ route('sanpham') }}"><i class="fal fa-users"></i>Sản Phẩm</a></li>
 					
+					
+					<li class="nav-item"><a class="nav-link" href="{{ route('list') }}"><i class="fal fa-users"></i> Mã giảm giá</a></li>
+					@endif
+
+					<li class="nav-item"><a class="nav-link" href="{{ route('bill') }}"><i class="fal fa-users"></i> Hóa Đơn</a></li>
+
 					<li class="nav-item"><a class="nav-link" href="{{ route('contact') }}"><i class="fal fa-users"></i> Liên hệ</a></li>
-					<li class="nav-item"><a class="nav-link" href="{{ route('bill') }}"><i class="fal fa-users"></i> Bill</a></li>
+					<li class="nav-item" style="margin-right: 100px;">
+						<form action="{{ url('/sanpham/tim') }}" method="get" enctype="multipart/form-data">
+								<input type="text" name="searchString" />
+								<input type="submit" value="tìm kiếm" />
+						</form>
+					</li>
+					@endauth
+					
 				</ul>
 				<ul class="navbar-nav ml-auto">
+					
 					<li class="nav-item">
 						<img src="{{ asset('public/images/icon/cart.svg') }}" width="60" height="30" alt="cart" />
 						<a id="cart-text" class="nav-link" href="{{route('cart')}}">Giỏ hàng</a>
