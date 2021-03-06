@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+ <!DOCTYPE html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
 <head>
 	<meta charset="utf-8" />
@@ -20,7 +20,7 @@
 	<link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet" />
 	
 	<!-- Favicon -->
-	<link href="{{ asset('public/images/logo.png') }}" rel="shortcut icon" type="image/x-icon" />
+	<link href="{{ asset('public/images/logo11.png') }}" rel="shortcut icon" type="image/x-icon" />
 	
 	<!-- Styles -->
 	<link href="{{ asset('public/css/bootstrap.min.css') }}" rel="stylesheet" />
@@ -38,7 +38,7 @@
 	<div class="container-fluid">
 		<nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
 			<a class="navbar-brand" href="{{ url('/') }}">
-				<img src="{{ asset('public/images/logo.png') }}" width="30" height="30" class="d-inline-block align-top" alt="" />
+				<img src="{{ asset('public/images/logo11.png') }}" width="30" height="30" class="d-inline-block align-top" alt="" />
 				{{ config('app.name', 'Laravel') }}
 			</a>
 			<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
@@ -96,7 +96,7 @@
 		</main>
 		
 		<hr class="shadow-sm" />
-		<footer>Bản quyền &copy; {{ date('Y') }} bởi {{ config('app.name', 'Laravel') }}.</footer>
+		<footer>Thiết Kế -Thi Công Nội Thất &copy; {{ date('Y') }}  {{ config('app.name', 'Laravel') }}.</footer>
 	</div>
 </body>
 </html>

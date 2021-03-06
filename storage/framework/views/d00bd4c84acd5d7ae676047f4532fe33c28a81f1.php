@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+ <!DOCTYPE html>
 <html lang="<?php echo e(str_replace('_', '-', app()->getLocale())); ?>">
 <head>
 	<meta charset="utf-8" />
@@ -20,7 +20,7 @@
 	<link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet" />
 	
 	<!-- Favicon -->
-	<link href="<?php echo e(asset('public/images/logo.png')); ?>" rel="shortcut icon" type="image/x-icon" />
+	<link href="<?php echo e(asset('public/images/logo11.png')); ?>" rel="shortcut icon" type="image/x-icon" />
 	
 	<!-- Styles -->
 	<link href="<?php echo e(asset('public/css/bootstrap.min.css')); ?>" rel="stylesheet" />
@@ -38,7 +38,7 @@
 	<div class="container-fluid">
 		<nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
 			<a class="navbar-brand" href="<?php echo e(url('/')); ?>">
-				<img src="<?php echo e(asset('public/images/logo.png')); ?>" width="30" height="30" class="d-inline-block align-top" alt="" />
+				<img src="<?php echo e(asset('public/images/logo11.png')); ?>" width="30" height="30" class="d-inline-block align-top" alt="" />
 				<?php echo e(config('app.name', 'Laravel')); ?>
 
 			</a>
@@ -59,12 +59,12 @@
 					<li class="nav-item"><a class="nav-link" href="<?php echo e(route('bill')); ?>"><i class="fal fa-users"></i> Hóa Đơn</a></li>
 
 					<li class="nav-item"><a class="nav-link" href="<?php echo e(route('contact')); ?>"><i class="fal fa-users"></i> Liên hệ</a></li>
-					<!-- <li class="nav-item" style="margin-right: 100px;">
+					<li class="nav-item" style="margin-right: 100px;">
 						<form action="<?php echo e(url('/sanpham/tim')); ?>" method="get" enctype="multipart/form-data">
 								<input type="text" name="searchString" />
 								<input type="submit" value="tìm kiếm" />
 						</form>
-					</li> -->
+					</li>
 					<?php endif; ?>
 					
 				</ul>
@@ -97,7 +97,7 @@
 		</main>
 		
 		<hr class="shadow-sm" />
-		<footer>Bản quyền &copy; <?php echo e(date('Y')); ?> bởi <?php echo e(config('app.name', 'Laravel')); ?>.</footer>
+		<footer>Thiết Kế -Thi Công Nội Thất &copy; <?php echo e(date('Y')); ?>  <?php echo e(config('app.name', 'Laravel')); ?>.</footer>
 	</div>
 </body>
 </html><?php /**PATH D:\wamp\www\CNWeb\resources\views/layouts/app.blade.php ENDPATH**/ ?>

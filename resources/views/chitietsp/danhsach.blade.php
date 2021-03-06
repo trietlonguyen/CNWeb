@@ -17,13 +17,13 @@
 			  	<p class="price btn btn-warning font-weight-bold">{{number_format($sanpham['giatien'])  }}VNĐ</p>
 			  	<p>{{ $sanpham['mota'] }}</p>
 			  	<a href="{{asset('/sanpham/add/'.$sanpham['id'])}}">
-                                    <button type="submit" class="btn btn-warning">MUA NGAY <i class="fa fa-chevron-right" aria-hidden="true"></i></button>
+                                    <button type="submit" class="btn btn-warning">Thêm Vào Giỏ Hàng <i class="fa fa-chevron-right" aria-hidden="true"></i></button>
                                 </a>
 			
 		</div>
 
 		<div class="col">
-			<h2 class="text-center">Thông số kỹ thuật</h2>
+			<h2 class="text-center">MÔ TẢ SẢN PHẨM </h2>
 			@auth()
 			@if(auth()->user()->level==1)
 			@if(empty($chitietsp))
@@ -35,52 +35,28 @@
 				<thead>
 					
 					<tr>
-						<td class="title-item">Màn hình</td>
+						<td class="title-item">Chất liệu</td>
 						<td>{{ $chitietsp['manhinh'] }}</td>
 					</tr>
 					<tr>
-						<td class="title-item">Hệ điều hành</td>
+						<td class="title-item">Kích Thước</td>
 						<td>{{ $chitietsp['os'] }}</td>
 					</tr>
 					<tr>
-						<td class="title-item">Camera sau</td>
+						<td class="title-item">Mô tả </td>
 						<td>{{ $chitietsp['camera_sau'] }}</td>
 					</tr>
 					<tr>
-						<td class="title-item">Camera trước</td>
+						<td class="title-item">Ghi Chú </td>
 						<td>{{ $chitietsp['camera_truoc'] }}</td>
 					</tr>
 					<tr>
-						<td class="title-item">CPU</td>
-						<td>{{ $chitietsp['cpu'] }}</td>
+						<td class="title-item">Giao Hàng Tại Nhà  </td>
+						<td>{{ $chitietsp['camera_truoc'] }}</td>
 					</tr>
 					<tr>
-						<td class="title-item">RAM</td>
-						<td>{{ $chitietsp['ram'] }}</td>
-					</tr>
-					<tr>
-						<td class="title-item">Bộ nhớ trong</td>
-						<td>{{ $chitietsp['bonhotrong'] }}</td>
-					</tr>
-					<tr>
-						<td class="title-item">Thẻ nhớ</td>
-						<td>{{ $chitietsp['thenho'] }}</td>
-					</tr>
-					<tr>
-						<td class="title-item">SIM</td>
-						<td>{{ $chitietsp['sim'] }}</td>
-					</tr>
-					<tr>
-						<td class="title-item">PIN</td>
-						<td>{{ $chitietsp['pin'] }}</td>
-					</tr>
-					<tr>
-						<td class="title-item">Sạc</td>
-						<td>{{ $chitietsp['pk_sac'] }}</td>
-					</tr>
-					<tr>
-						<td class="title-item">Tai Nghe</td>
-						<td>{{ $chitietsp['pk_tainghe'] }}</td>
+						<td class="title-item">Trong Lượng  </td>
+						<td>{{ $chitietsp['camera_truoc'] }}</td>
 					</tr>
 					<tr>
 						@auth()

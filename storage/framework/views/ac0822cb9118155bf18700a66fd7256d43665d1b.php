@@ -17,13 +17,13 @@
 			  	<p class="price btn btn-warning font-weight-bold"><?php echo e(number_format($sanpham['giatien'])); ?>VNĐ</p>
 			  	<p><?php echo e($sanpham['mota']); ?></p>
 			  	<a href="<?php echo e(asset('/sanpham/add/'.$sanpham['id'])); ?>">
-                                    <button type="submit" class="btn btn-warning">MUA NGAY <i class="fa fa-chevron-right" aria-hidden="true"></i></button>
+                                    <button type="submit" class="btn btn-warning">Thêm Vào Giỏ Hàng <i class="fa fa-chevron-right" aria-hidden="true"></i></button>
                                 </a>
 			
 		</div>
 
 		<div class="col">
-			<h2 class="text-center">Thông số kỹ thuật</h2>
+			<h2 class="text-center">MÔ TẢ SẢN PHẨM </h2>
 			<?php if(auth()->guard()->check()): ?>
 			<?php if(auth()->user()->level==1): ?>
 			<?php if(empty($chitietsp)): ?>
@@ -35,52 +35,28 @@
 				<thead>
 					
 					<tr>
-						<td class="title-item">Màn hình</td>
+						<td class="title-item">Chất liệu</td>
 						<td><?php echo e($chitietsp['manhinh']); ?></td>
 					</tr>
 					<tr>
-						<td class="title-item">Hệ điều hành</td>
+						<td class="title-item">Kích Thước</td>
 						<td><?php echo e($chitietsp['os']); ?></td>
 					</tr>
 					<tr>
-						<td class="title-item">Camera sau</td>
+						<td class="title-item">Mô tả </td>
 						<td><?php echo e($chitietsp['camera_sau']); ?></td>
 					</tr>
 					<tr>
-						<td class="title-item">Camera trước</td>
+						<td class="title-item">Ghi Chú </td>
 						<td><?php echo e($chitietsp['camera_truoc']); ?></td>
 					</tr>
 					<tr>
-						<td class="title-item">CPU</td>
-						<td><?php echo e($chitietsp['cpu']); ?></td>
+						<td class="title-item">Giao Hàng Tại Nhà  </td>
+						<td><?php echo e($chitietsp['camera_truoc']); ?></td>
 					</tr>
 					<tr>
-						<td class="title-item">RAM</td>
-						<td><?php echo e($chitietsp['ram']); ?></td>
-					</tr>
-					<tr>
-						<td class="title-item">Bộ nhớ trong</td>
-						<td><?php echo e($chitietsp['bonhotrong']); ?></td>
-					</tr>
-					<tr>
-						<td class="title-item">Thẻ nhớ</td>
-						<td><?php echo e($chitietsp['thenho']); ?></td>
-					</tr>
-					<tr>
-						<td class="title-item">SIM</td>
-						<td><?php echo e($chitietsp['sim']); ?></td>
-					</tr>
-					<tr>
-						<td class="title-item">PIN</td>
-						<td><?php echo e($chitietsp['pin']); ?></td>
-					</tr>
-					<tr>
-						<td class="title-item">Sạc</td>
-						<td><?php echo e($chitietsp['pk_sac']); ?></td>
-					</tr>
-					<tr>
-						<td class="title-item">Tai Nghe</td>
-						<td><?php echo e($chitietsp['pk_tainghe']); ?></td>
+						<td class="title-item">Trong Lượng  </td>
+						<td><?php echo e($chitietsp['camera_truoc']); ?></td>
 					</tr>
 					<tr>
 						<?php if(auth()->guard()->check()): ?>

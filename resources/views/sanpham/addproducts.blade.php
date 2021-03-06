@@ -36,7 +36,7 @@
 					@enderror
 				</div>
 
-				<button type="submit" class="btn btn-primary"><i class="fal fa-save"></i> Chọn mua</button>
+				<button type="submit" class="btn btn-primary"><i class="fal fa-save"></i> Chọn Mua</button>
 			</form>
 		</div>	
 	</div>

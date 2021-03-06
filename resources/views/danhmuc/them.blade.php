@@ -14,7 +14,7 @@
 					@enderror
 				</div>
 				
-				<button type="submit" class="btn btn-primary"><i class="fal fa-save"></i> Thêm vào CSDL</button>
+				<button type="submit" class="btn btn-primary"><i class="fal fa-save"></i> Thêm Danh Mục Mới</button>
 			</form>
 		</div>
 	</div>

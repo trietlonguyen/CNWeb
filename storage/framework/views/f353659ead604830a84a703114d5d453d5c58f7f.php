@@ -271,7 +271,7 @@ unset($__errorArgs, $__bag); ?>
 				    </div>
 				</div>
 				
-				<button type="submit" class="btn btn-primary"><i class="fal fa-save"></i> Thêm vào CSDL</button>
+				<button type="submit" class="btn btn-primary"><i class="fal fa-save"></i> Thêm Chi Tiết Sản Phẩm</button>
 			</form>
 		</div>
 	</div>

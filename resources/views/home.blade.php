@@ -6,7 +6,7 @@
 <style type="text/css">
 	div.carousel-item{
 		width: 100%;
-		height: 250px!important;
+		height: 500px!important;
 	}
 	.carouselExampleIndicators{
 
@@ -29,7 +29,7 @@
   		</ol>
   	<div class="carousel-inner">
     <div class="carousel-item active">
-      	<img class="d-block w-100" src="{{asset('public/images/banner4.jpg')}}" alt="First slide">
+      	<img class="d-block w-100" src="{{asset('public/images/1111.jpg')}}" alt="First slide">
     </div>
     <div class="carousel-item">
       	<img class="d-block w-100" src="{{asset('public/images/banner2.jpg')}}" alt="Second slide">
@@ -50,8 +50,8 @@
 </div>
 
 <div class="row w-100 h-100">
-		<h3 class="text-dark text-center w-100 font-weight-bold rounded"><hr />Danh Mục</h3>
-		
+		<h1 class="text-dark text-center w-100 font-weight-bold rounded"><hr />Nội Thất</h1> 
+		      	
 		<ul class="nav nav-pills mb-3 w-100" id="pills-tab" role="tablist" style="display: flex;align-items: center;justify-content: center;">
 			@csrf
 		  	<li class="nav-item tab">
